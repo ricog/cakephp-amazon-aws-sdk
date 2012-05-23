@@ -55,7 +55,7 @@ class AmazonComponent extends Component {
       APP.'Plugin'.DS.'Amazonsdk'.DS .'Vendor'.DS)
     ));    
     App::import('Vendor', 'Amazon', array(
-      'file' => 'sdk-1.5.4'.DS.'sdk.class.php'
+      'file' => 'sdk-1.5.6'.DS.'sdk.class.php'
     ));
   }
 
