@@ -5,7 +5,8 @@
   $config = array(
   	'Aws' => array(
   		'key' => 'YOUR_KEY',
-  		'secret' => 'YOUR_SECRET'
+  		'secret' => 'YOUR_SECRET',
+  		//'certificate_authority' => true,  // false by default
     )
   );
 ?>

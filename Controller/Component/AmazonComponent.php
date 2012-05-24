@@ -92,7 +92,8 @@ class AmazonComponent extends Component {
   private function __createService($class) {
     return new $class(array(
       'key' => Configure::read('Aws.key'),      
-      'secret' => Configure::read('Aws.secret')
+      'secret' => Configure::read('Aws.secret'),
+      'certificate_authority' => Configure::read('Aws.certificate_authority'),
     ));
   }  
 
