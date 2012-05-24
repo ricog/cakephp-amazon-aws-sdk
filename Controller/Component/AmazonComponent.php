@@ -9,27 +9,6 @@ Configure::load('Amazonsdk.amazon');
 class AmazonComponent extends Component {
 
   /**
-   * Holds an array of valid service "names" and the class that corresponds
-   * to each one.
-   *
-   * @var array
-   * @access private
-   */
-  private $__services = array(
-    'SNS' => 'AmazonSNS',
-    'AutoScale' => 'AmazonAS',
-    'CloudFront' => 'AmazonCloudFront',
-    'CloudWatch' => 'AmazonCloudWatch',
-    'EC2' => 'AmazonEC2',
-    'ELB' => 'AmazonELB',
-    'EMR' => 'AmazonEMR',
-    'RDS' => 'AmazonRDS',
-    'S3' => 'AmazonS3',
-    'SDB' => 'AmazonSDB',
-    'SQS' => 'AmazonSQS'
-  );
-
-  /**
    * Constructor
    * saves the controller reference for later use
    * @param ComponentCollection $collection A ComponentCollection this component can use to lazy load its components
@@ -69,16 +48,18 @@ class AmazonComponent extends Component {
    * @access public
    */
   public function __get($variable) {
-    if (in_array($variable, array_keys($this->__services))) {
+    // Build a class name.  (ex: SDB -> AmazonSDB)
+    $class = 'Amazon'.$variable;
 
+    // Create the service if class exists.
+    if (class_exists($class)) {
       // Store away the requested class for future usage.
-      $this->$variable = $this->__createService(
-        $this->__services[$variable]
-      );
+      $this->$variable = $this->__createService($class);
 
       // Return the class back to the caller
       return $this->$variable;
     }
+    return false;
   }
 
   /**
