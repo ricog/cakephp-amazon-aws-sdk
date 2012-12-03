@@ -4,9 +4,9 @@
    */
   $config = array(
   	'Aws' => array(
-  		'key' => 'YOUR_KEY',
-  		'secret' => 'YOUR_SECRET',
-  		//'certificate_authority' => true,  // false by default
+  		'key' => Configure::read('Amazonsdk.key'),
+  		'secret' => Configure::read('Amazonsdk.secret'),
+  		'certificate_authority' => true,  // false by default
     )
   );
 ?>
