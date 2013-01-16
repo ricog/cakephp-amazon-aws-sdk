@@ -76,7 +76,7 @@ class AmazonComponent extends Component {
       'key' => Configure::read('Aws.key'),
       'secret' => Configure::read('Aws.secret'),
     );
-    if (Configure::read('Aws.certificate_authority') !== null) {
+    if (Configure::read('Aws.certificate_authority')) {
       $options['certificate_authority'] = Configure::read('Aws.certificate_authority');
     }
     if (Configure::read('Aws.token') !== null) {
