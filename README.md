@@ -15,12 +15,14 @@ Forked from http://github.com/joebeeson/amazon for CakePHP 1.3+
 
 ## Configuration
 
-You must populate the following two lines in your `/app/Plugin/Amazonsdk/Config/amazon.php` file.
+You must set Aws.key, Aws.secret, and optionally Aws.certificate_authority in your application
+config. Below is an example. This can be added in bootstrap.php. Make sure to change the defaults.
 
-  		'key' => 'YOUR_KEY',
-  		'secret' => 'YOUR_SECRET'
-
-Don't forget to replace the placeholder text with your actual keys!
+Configure::write('Aws', array(
+	'key' => 'YOUR_KEY',
+	'secret' => 'YOUR_SECRET',
+	'certificate_authority' => false
+));
 
 ## Usage
 

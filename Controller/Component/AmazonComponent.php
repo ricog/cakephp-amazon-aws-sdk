@@ -1,6 +1,4 @@
 <?php
-Configure::load('Amazonsdk.amazon');
-
 /**
  * AmazonComponent
  *
