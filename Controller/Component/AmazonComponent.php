@@ -8,6 +8,7 @@ Configure::load('Amazonsdk.amazon');
  */
 class AmazonComponent extends Component {
 
+
   /**
    * Constructor
    * saves the controller reference for later use
@@ -16,6 +17,15 @@ class AmazonComponent extends Component {
    */
   public function __construct(ComponentCollection $collection, $settings = array()) {
     $this->_controller = $collection->getController();
+
+    // Handle loading our library firstly...
+    App::build(array('Vendor' => array(
+      APP.'Plugin'.DS.'Amazonsdk'.DS .'Vendor'.DS)
+    ));
+    App::import('Vendor', 'Amazon', array(
+      'file' => 'sdk-1.5.15'.DS.'sdk.class.php'
+    ));
+
     parent::__construct($collection, $settings);
   }
 
@@ -29,13 +39,6 @@ class AmazonComponent extends Component {
    * @access public
    */
   public function initialize(Controller $controller) {
-    // Handle loading our library firstly...
-    App::build(array('Vendor' => array(
-      APP.'Plugin'.DS.'Amazonsdk'.DS .'Vendor'.DS)
-    ));
-    App::import('Vendor', 'Amazon', array(
-      'file' => 'sdk-1.5.15'.DS.'sdk.class.php'
-    ));
   }
 
   /**
