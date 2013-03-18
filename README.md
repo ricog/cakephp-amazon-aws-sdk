@@ -3,11 +3,24 @@
 This plugin is a (*very*) thin veil over Amazon's [AWS SDK for PHP](http://aws.amazon.com/sdkforphp/) for use in CakePHP controllers.
 Forked from http://github.com/joebeeson/amazon for CakePHP 1.3+
 
+## Environment
+
+* Requires a valid AWS account and already being signed up to the AWS services you want to use.
+* PHP v5.2+ (5.2.17 or 5.3.x highly recommended)
+* [CakePHP](https://github.com/cakephp/cakephp) v2.0.0+
+* The cURL PHP extension (compiled with the OpenSSL libraries for HTTPS support).
+* The ability to read from and write to the file system via file_get_contents() and file_put_contents().
+
+## Included Libraries and Submodules
+
+* [AWS SDK v1.6.1](https://github.com/amazonwebservices/aws-sdk-for-php/tree/1.6.1)
+
 ## Installation
 
-* Download the plugin
+* Download the plugin and initialize submodules
 
-        $ cd /path/to/your/app/plugins && git clone git://github.com/mcallisto/cakephp_amazon_aws_sdk.git
+        $ cd /path/to/your/app/plugins && git clone git://github.com/mcallisto/cakephp_amazon_aws_sdk.git Amazonsdk
+        $ cd Amazonsdk; git submodule update --init
 
 * Add the component to a controller
 
